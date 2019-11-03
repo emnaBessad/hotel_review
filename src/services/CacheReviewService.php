@@ -5,7 +5,7 @@ use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
 class CacheReviewService
 {
-    public $time=1;
+    public $time=60;
 
     public function getCachedReview($id_hotel)
     {
