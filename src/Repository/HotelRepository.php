@@ -40,19 +40,19 @@ class HotelRepository extends ServiceEntityRepository
      * @return Review Returns a today random review
      */
 
-//     public function getTodayRandomReview($id_hotel)
-//     {
-//         $offset = intval(rand(0, $this->getNbReviews($id_hotel) - 1));
-//         return $this->createQueryBuilder('h')
-//             ->innerJoin(Review::class,'r','r.hotel_id	= h.id')
-//             ->where('h.id = :id')
-//             ->setParameter('id', $id_hotel)
-//             ->andWhere('r.creation_date = :today')
-//             ->setParameter('today', (new \DateTime())->format('Y-m-d'))
-//             ->setFirstResult($offset)
-//             ->getQuery()
-//             ->getResult();
-//     }
+    public function getTodayRandomReview($id_hotel)
+    {
+        $offset = intval(rand(0, $this->getNbReviews($id_hotel) - 1));
+        return $this->createQueryBuilder('h')
+            ->innerJoin(Review::class,'r','r.hotel_id	= h.id')
+            ->where('h.id = :id')
+            ->setParameter('id', $id_hotel)
+            ->andWhere('r.creation_date = :today')
+            ->setParameter('today', (new \DateTime())->format('Y-m-d'))
+            ->setFirstResult($offset)
+            ->getQuery()
+            ->getResult();
+    }
 
     /*
     public function findOneBySomeField($value): ?Hotel
